@@ -1,0 +1,21 @@
+*.class
+
+.idea
+.idea/*
+
+.DS_Store
+.metadata
+
+# Package Files #
+*.war
+*.ear
+*.class
+
+Servers/
+.settings/
+.project
+*/.classpath
+*/.mvn
+
+**/target/**
+target/**
