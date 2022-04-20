@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
-
-
 <!--
   ~
   ~  Copyright 2006 OCLC, Online Computer Library Center
@@ -41,12 +39,10 @@
 		<groupId>org.lareferencia</groupId>
 		<artifactId>lareferencia-parent</artifactId>
 		<version>4.1.0</version>
-		<relativePath>../lareferencia-platform/pom.xml</relativePath>
 	</parent>
 
 
 	<dependencies>
-		<!-- OCLC Harvester -->
 		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
