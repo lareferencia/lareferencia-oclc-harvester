@@ -54,10 +54,9 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.io.IOUtils;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.config.Configurator;
-import org.apache.logging.log4j.core.config.DefaultConfiguration;
 import org.apache.xpath.XPathAPI;
 import org.lareferencia.core.util.InvalidXMLCharFilterReader;
 import org.w3c.dom.DOMImplementation;
@@ -77,11 +76,7 @@ public abstract class HarvesterVerb {
 	private static Logger logger = LogManager.getLogger(HarvesterVerb.class);
 
 	private static int MAX_REQUEST_TIME = 120; // SEGUNDOS
-
-	static {
-		Configurator.initialize(new DefaultConfiguration());
-	}
-
+	
 	/* Primary OAI namespaces */
 	public static final String SCHEMA_LOCATION_V2_0 = "http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd";
 	public static final String SCHEMA_LOCATION_V1_1_GET_RECORD = "http://www.openarchives.org/OAI/1.1/OAI_GetRecord http://www.openarchives.org/OAI/1.1/OAI_GetRecord.xsd";
