@@ -22,3 +22,4 @@ target/**
 lareferencia-oclc-harvester.iml
 .classpath
 .factorypath
+pom.xml.versionsBackup
