@@ -31,7 +31,7 @@
 
 	<groupId>org.lareferencia</groupId>
 	<artifactId>lareferencia-oclc-harvester</artifactId>
-	<name>lareferencia oclc harvester lib</name>
+	<name>LA Referencia oclc harvester lib</name>
 	<description>LA Referencia oclc harvester lib version </description>
 	<version>4.2.0</version>
 
