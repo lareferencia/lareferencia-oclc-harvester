@@ -53,39 +53,29 @@
 			<artifactId>Saxon-HE</artifactId>
 			<version>9.6.0-5</version>
 		</dependency>
+		<dependency>
+   			<groupId>org.apache.maven.plugins</groupId>
+   			<artifactId>maven-source-plugin</artifactId>
+   			<version>3.2.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<plugins>
-
+		<!--plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>3.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<failOnError>false</failOnError>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-		</plugins>
+		</plugins-->
 	</build>
 </project>
