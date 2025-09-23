@@ -33,12 +33,12 @@
 	<artifactId>lareferencia-oclc-harvester</artifactId>
 	<name>LA Referencia oclc harvester lib</name>
 	<description>LA Referencia oclc harvester lib version </description>
-	<version>4.2.5</version>
+	<version>4.2.6</version>
 
 	<parent>
 		<groupId>org.lareferencia</groupId>
 		<artifactId>lareferencia-parent</artifactId>
-		<version>4.2.5</version>
+		<version>4.2.6</version>
 	</parent>
 
 
