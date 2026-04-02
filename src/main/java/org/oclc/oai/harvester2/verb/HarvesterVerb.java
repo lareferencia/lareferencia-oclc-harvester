@@ -134,6 +134,9 @@ public abstract class HarvesterVerb {
 	 * @return the xsi:schemaLocation value
 	 */
 	public String getSchemaLocation() {
+		if ((schemaLocation == null || schemaLocation.isBlank()) && doc != null) {
+			schemaLocation = inferSchemaLocation(doc);
+		}
 		return schemaLocation;
 	}
 
@@ -327,14 +330,10 @@ public abstract class HarvesterVerb {
 			// logger.debug("OCLC Harvester 2: parseado el documento : "+
 			// requestURL);
 	
-			StringTokenizer tokenizer = new StringTokenizer(getSingleString("/*/@xsi:schemaLocation"), " ");
-			StringBuffer sb = new StringBuffer();
-			while (tokenizer.hasMoreTokens()) {
-				if (sb.length() > 0)
-					sb.append(" ");
-				sb.append(tokenizer.nextToken());
+			this.schemaLocation = normalizeSchemaLocation(getSingleString("/*/@xsi:schemaLocation"));
+			if ((this.schemaLocation == null || this.schemaLocation.isBlank()) && doc != null) {
+				this.schemaLocation = inferSchemaLocation(doc);
 			}
-			this.schemaLocation = sb.toString();
 	
 			// logger.debug("OCLC Harvester 2: Finalizado: " +requestURL);
 	
@@ -355,6 +354,35 @@ public abstract class HarvesterVerb {
 			throw new FatalHarvestingException("Parsing XML (SAXException): " + requestURL + " :: " + e.getMessage(), e);
 		}
 
+	}
+
+	private static String normalizeSchemaLocation(String rawSchemaLocation) {
+		if (rawSchemaLocation == null || rawSchemaLocation.isBlank()) {
+			return null;
+		}
+
+		StringTokenizer tokenizer = new StringTokenizer(rawSchemaLocation, " ");
+		StringBuffer sb = new StringBuffer();
+		while (tokenizer.hasMoreTokens()) {
+			if (sb.length() > 0)
+				sb.append(" ");
+			sb.append(tokenizer.nextToken());
+		}
+		return sb.toString();
+	}
+
+	private static String inferSchemaLocation(Document document) {
+		if (document == null || document.getDocumentElement() == null) {
+			return null;
+		}
+
+		Element root = document.getDocumentElement();
+		if ("OAI-PMH".equals(root.getLocalName())
+				&& "http://www.openarchives.org/OAI/2.0/".equals(root.getNamespaceURI())) {
+			return SCHEMA_LOCATION_V2_0;
+		}
+
+		return null;
 	}
 
 	/**
