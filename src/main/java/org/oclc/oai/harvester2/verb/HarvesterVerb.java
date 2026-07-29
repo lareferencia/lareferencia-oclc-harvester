@@ -235,6 +235,7 @@ public abstract class HarvesterVerb {
 
 			con.setRequestProperty("User-Agent", "OAIHarvester/2.0");
 			con.setRequestProperty("Accept-Encoding", "compress, gzip, identify");
+			con.setRequestProperty("Accept", "application/xml, text/xml");
 
 			try {
 				responseCode = con.getResponseCode();
