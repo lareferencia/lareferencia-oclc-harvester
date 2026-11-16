@@ -33,13 +33,13 @@
 	<artifactId>lareferencia-oclc-harvester</artifactId>
 	<name>LA Referencia oclc harvester lib</name>
 	<description>LA Referencia oclc harvester lib version </description>
-	<version>5.0.0-rc3</version>
 
 	<parent>
-		<groupId>org.lareferencia</groupId>
-		<artifactId>lareferencia-parent</artifactId>
-		<version>5.0.0-rc3</version>
-	</parent>
+        <groupId>org.lareferencia</groupId>
+        <artifactId>lareferencia-parent</artifactId>
+        <version>5.0.0-rc3</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
 
 	<dependencies>
